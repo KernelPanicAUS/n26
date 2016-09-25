@@ -33,7 +33,6 @@ public class TransactionController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/transaction/{txnId}", method = RequestMethod.PUT)
     public JsonHttpResponse createTxn(@PathVariable Long txnId, @RequestBody Map<String, Object> payload) {
-
         this.transactionService.createTxn(txnId, payload);
 
         return new JsonHttpResponse(HttpStatus.OK.getReasonPhrase());
@@ -56,6 +55,7 @@ public class TransactionController {
 
         return new ResponseEntity<Map<String, Long>>(response, HttpStatus.FOUND);
     }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Status> handleException(RuntimeException e) {
         Status status = new Status(e.getMessage());
