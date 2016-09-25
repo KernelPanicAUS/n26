@@ -2,6 +2,8 @@ package com.khalilt.n26.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.khalilt.n26.store.TransactionStore;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,14 @@ public class TransactionControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
+
+    @Autowired
+    private TransactionStore transactionStore;
+
+    @After
+    public void tearDown() {
+        this.transactionStore.clearAll();
+    }
 
 
     @Test

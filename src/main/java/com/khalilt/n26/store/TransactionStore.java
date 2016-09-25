@@ -98,6 +98,12 @@ public class TransactionStore {
         }
     }
 
+    public void clearAll(){
+        this.transactionMap = new HashMap<>();
+        this.typeMap = new HashMap<>();
+        this.parentMap = new HashMap<>();
+    }
+
     /* #################################
      *          Internals
      ################################# */
