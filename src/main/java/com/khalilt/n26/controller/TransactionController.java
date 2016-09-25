@@ -26,26 +26,24 @@ public class TransactionController {
     @ResponseBody
     @RequestMapping(value = "/transaction/{txnId}", method = RequestMethod.PUT)
     public String createTxn(@PathVariable Long txnId, @RequestBody Map<String, Object> payload) {
-        return "{\"status\": "+ HttpStatus.OK.value() +", \"body\": " + txnId + "}";
+        return "{\"status\": "+ HttpStatus.OK.value() +"}";
     }
 
     @ResponseBody
     @RequestMapping(value = "/transaction/{txnId}", method = RequestMethod.GET)
     public String fetchTxn(@PathVariable Long txnId) {
-        return "{\"amount\": 1000, \"type\": car, \"parent_id\": " + txnId + "}";
+        return "{\"amount\": 1000, \"type\": \"car\", \"parent_id\": " + txnId + "}";
     }
 
     @ResponseBody
     @RequestMapping(value = "/types/{type}", method = RequestMethod.GET)
     public String fetchTxnIdsByType(@PathVariable String type) {
-        System.out.print(type);
         return "[10001,10002,10003]";
     }
 
     @ResponseBody
     @RequestMapping(value = "/sum/{txnId}", method = RequestMethod.GET)
     public String fetchTxnSumForTxn(@PathVariable Long txnId) {
-        System.out.println(txnId);
-        return "{\"sum\": 10023.00}";
+        return "{\"sum\": 10023}";
     }
 }
