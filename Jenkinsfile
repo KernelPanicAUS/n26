@@ -1,14 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'java'
-    }
-    
-  }
+  agent none
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh './gradlew check'
+        sh 'gradlew check'
       }
     }
   }
